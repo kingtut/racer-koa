@@ -1,6 +1,6 @@
 "use strict"
-var highway = require( "racer-highway" );
 var racer = require( "racer" );
+var Transport = require("racer-transport-koa");
 var c2k = require( "koa-connect" );
 
 var defaultOptionsTransportServer = require( "./lib/defaults" );
@@ -21,12 +21,12 @@ Racer.prototype.createTransport = function( optionsServer, optionsClient ){
   return this;
 }
 Racer.prototype.use = function( app ){
-  // var store = racer.createStore( this.optionsRacer );
   var racerStore = racer.createBackend( this.optionsRacer );
-  var transport = highway( racerStore, this.optionsTransportServer, this.optionsTransportClient );
-  app
-    .use( c2k( racerStore.modelMiddleware() ) )
-    .use( c2k( transport.middleware ) );
+  app.use( c2k( racerStore.modelMiddleware() ) )
+
+  var transport = new Transport( racerStore, this.optionsTransportServer, this.optionsTransportClient );
+  transport.connect(app);
+
   return transport;
 }
 
