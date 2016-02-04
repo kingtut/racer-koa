@@ -15,7 +15,7 @@
   "dependencies": {
     "koa-connect": "^1.0.0",
     "racer": "^0.8.9",
-    "racer-transport-koa": "0.0.1",
-    "racer-react": "https://github.com/droganov/racer-react.git"
+    "racer-react": "^0.0.9",
+    "racer-transport-koa": "0.0.1"
   }
 }
