@@ -1,6 +1,6 @@
 {
   "name": "racer-koa",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Koajs adapter for racer.js",
   "main": "index.js",
   "scripts": {

@@ -10,6 +10,7 @@ function Racer() {
   this.optionsRacer = {};
   this.optionsTransportServer = {};
   this.optionsTransportClient = {};
+  this.plugins = [];
 }
 Racer.prototype.createBackend = function( optionsRacer ){
   this.optionsRacer = optionsRacer;
@@ -20,14 +21,26 @@ Racer.prototype.createTransport = function( optionsServer, optionsClient ){
   this.optionsTransportClient = Object.assign( {}, defaultOptionsTransportClient, optionsClient );
   return this;
 }
-Racer.prototype.use = function( app ){
+Racer.prototype.connect = function( app ){
   var racerStore = racer.createBackend( this.optionsRacer );
-  app.use( c2k( racerStore.modelMiddleware() ) )
+  app.use( c2k( racerStore.modelMiddleware() ) );
+
+  for (var i = 0; i < this.plugins.length; i++) {
+    var current = this.plugins[i];
+    racerStore.use( current.plugin, current.options );
+  }
 
   var transport = new Transport( racerStore, this.optionsTransportServer, this.optionsTransportClient );
   transport.connect(app);
 
   return transport;
+}
+Racer.prototype.use = function( plugin, options ){
+  this.plugins.push({
+    plugin: plugin,
+    options: options
+  });
+  return this;
 }
 
 module.exports = Racer;
