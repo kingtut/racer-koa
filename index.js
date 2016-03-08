@@ -31,9 +31,9 @@ Racer.prototype.connect = function( app ){
   }
 
   var transport = new Transport( racerStore, this.optionsTransportServer, this.optionsTransportClient );
-  transport.connect(app);
+  transport.connect( app );
 
-  return transport;
+  return racerStore;
 }
 Racer.prototype.use = function( plugin, options ){
   this.plugins.push({
