@@ -22,9 +22,9 @@ Racer.prototype.createTransport = function( optionsServer, optionsClient ){
 }
 Racer.prototype.connect = function( app ){
   var backend = racer.createBackend( this.optionsRacer );
-  app.use( c2k( backend.modelMiddleware() ) );
   var transport = new Transport( backend, this.optionsTransportServer, this.optionsTransportClient );
   transport.connect( app );
+  app.use( c2k( backend.modelMiddleware() ) );
   return backend;
 }
 Racer.prototype.use = function( plugin, options ){

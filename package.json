@@ -16,6 +16,6 @@
     "koa-connect": "^1.0.0",
     "racer": "^0.8.11",
     "racer-react": "^0.0.22",
-    "racer-transport-koa": "0.0.4"
+    "racer-transport-koa": "0.0.5"
   }
 }
