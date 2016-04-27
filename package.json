@@ -1,6 +1,6 @@
 {
   "name": "racer-koa",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "Koajs adapter for racer.js",
   "main": "index.js",
   "scripts": {
@@ -15,7 +15,7 @@
   "dependencies": {
     "koa-connect": "^1.0.0",
     "racer": "^0.8.11",
-    "racer-react": "^0.0.23",
+    "racer-react": "^0.0.24",
     "racer-transport-koa": "0.0.5"
   }
 }
