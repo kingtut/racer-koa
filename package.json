@@ -16,6 +16,6 @@
     "koa-connect": "^1.0.0",
     "racer": "^0.8.11",
     "racer-react": "^0.0.25",
-    "racer-transport-koa": "0.0.5"
+    "racer-transport-koa": "git+git@github.com:kingtut/racer-transport-koa.git"
   }
 }
